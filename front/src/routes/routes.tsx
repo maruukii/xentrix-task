@@ -9,27 +9,27 @@ const routes: RouteMetaData[] = [
     type: 'public',
   },
   // {
-  //   path: "/login",
+  //   path: "/signin",
   //   element: (
-  //     <RedirectIfLoggedIn>
-  //       <Login />
-  //     </RedirectIfLoggedIn>
+  //     <RedirectIfSignedIn>
+  //       <SignIn />
+  //     </RedirectIfSignedIn>
   //   ),
   //   type: "public",
   // },
   // {
   //   path: '/signup',
   //   element: (
-  //     <RedirectIfLoggedIn>
+  //     <RedirectIfSignedIn>
   //       <Signup />
-  //     </RedirectIfLoggedIn>
+  //     </RedirectIfSignedIn>
   //   ),
   //   type: 'public',
   // },
   // Protected Routes
-  // { path: "/property/new", element: <CreateProperty />, type: "protected" },
-  // { path: "/property/:id", element: <EditProperty />, type: "protected" },
-  // { path: "/properties", element: <Properties />, type: "protected" },
+  // { path: "/properties/new", element: <CreateProperty />, type: "protected" },
+  // { path: "/properties/:id", element: <PropertyDetails />, type: "protected" },
+  // { path: "/properties/listing", element: <Properties />, type: "protected" },
   // {
   //   path: "/*",
   //   element: <Home />,
