@@ -1,4 +1,4 @@
-import HomeNav from '@/components/Navbar/HomeNav'
+import HomeNav from '@/components/navbar/HomeNav'
 
 export default function Public({ children }: { children: React.ReactNode }) {
   return (
