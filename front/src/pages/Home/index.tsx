@@ -1,5 +1,15 @@
+// import ActionButton from '@/components/ui/actionButton'
+
+import Hero from '@/components/Home/Hero'
+import WhyUs from '@/components/Home/WhyUs'
+
 const index = () => {
-  return <div></div>
+  return (
+    <main>
+      <Hero />
+      <WhyUs />
+    </main>
+  )
 }
 
 export default index
