@@ -1,21 +1,19 @@
 import { useLocation, Navigate } from 'react-router-dom'
 import type { ReactNode } from 'react'
-import SkeletonEffect from '@/components/SkeletonEffect'
-// import useAuth from './useAuth'
-
+import { useSelector } from 'react-redux'
 interface RequireAuthProps {
   children: ReactNode
 }
 
 const RequireAuth: React.FC<RequireAuthProps> = ({ children }) => {
   const location = useLocation()
-  const { userName, loading } = { userName: 'mockUser', loading: false } // Replace with useAuth()
+  const { isLoggedIn } = useSelector((state: any) => state.user)
 
-  if (loading) {
-    return <SkeletonEffect />
-  }
-
-  return userName ? children : <Navigate to="/" state={{ from: location }} replace />
+  return isLoggedIn ? (
+    children
+  ) : (
+    <Navigate to="/auth?tab=signin" state={{ from: location }} replace />
+  )
 }
 
 export default RequireAuth

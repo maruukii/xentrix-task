@@ -5,8 +5,9 @@ import { Route, Routes } from 'react-router-dom'
 import routes from './routes.tsx'
 import Protected from '../layout/Protected'
 import Public from '../layout/Public'
-import SkeletonEffect from '@/components/SkeletonEffect.tsx'
+import SkeletonEffect from '@/components/SkeletonTable.tsx'
 import RequireAuth from '@/hooks/RequireAuth.tsx'
+import Auth from '@/layout/Auth.tsx'
 
 const Index = () => {
   return (
@@ -16,6 +17,8 @@ const Index = () => {
           const RouteElement =
             route.type === 'public' ? (
               <Public>{route.element}</Public>
+            ) : route.type === 'auth' ? (
+              <Auth>{route.element}</Auth>
             ) : (
               <RequireAuth>
                 <Protected>{route.element}</Protected>

@@ -1,7 +1,5 @@
-// import ActionButton from '@/components/ui/actionButton'
-
-import Hero from '@/components/Home/Hero'
-import WhyUs from '@/components/Home/WhyUs'
+import Hero from '@/components/home/Hero'
+import WhyUs from '@/components/home/WhyUs'
 
 const index = () => {
   return (

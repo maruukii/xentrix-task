@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom'
 import ActionButton from '../ui/actionButton'
+import useLogout from '@/hooks/useLogout'
+import { useDispatch } from 'react-redux'
+import useAuth from '@/hooks/useAuth'
+import SkeletonEffect from '../SkeletonComponent'
 
 const HomeNav = () => {
+  const dispatch = useDispatch()
+  const logout = useLogout(dispatch)
+  const { isAuthenticated, loading } = useAuth()
   return (
     <nav className="bg-primary flex w-full items-center justify-between px-[104px] py-6">
       <Link to="/">
@@ -36,18 +43,46 @@ const HomeNav = () => {
       </ul>
 
       <div className="flex gap-4">
-        <Link to="/signin">
-          <ActionButton
-            label="Sign in"
-            className="border-primary-content h-fit cursor-pointer gap-3 rounded-md border-[1.5px] px-6 py-4 leading-[140%] tracking-[0.04em]"
-            labelClassName="text-primary-content"
-          />
-        </Link>
-        <ActionButton
-          label="Get Started"
-          className="bg-primary-content h-fit cursor-not-allowed gap-3 rounded-md px-6 py-4 leading-[140%] tracking-[0.04em]"
-          labelClassName="text-white"
-        />
+        {loading ? (
+          <SkeletonEffect />
+        ) : (
+          <>
+            {!isAuthenticated ? (
+              <>
+                <Link to="/auth?tab=signin">
+                  <ActionButton
+                    label="Sign in"
+                    className="border-primary-content h-fit cursor-pointer gap-3 rounded-md border-[1.5px] px-6 py-4"
+                    labelClassName="text-primary-content"
+                  />
+                </Link>
+
+                <ActionButton
+                  label="Get Started"
+                  className="bg-primary-content h-fit cursor-not-allowed gap-3 rounded-md px-6 py-4"
+                  labelClassName="text-white"
+                />
+              </>
+            ) : (
+              <>
+                <Link to="/dashboard">
+                  <ActionButton
+                    label="Dashboard"
+                    className="border-primary-content h-fit cursor-pointer gap-3 rounded-md border-[1.5px] px-6 py-4"
+                    labelClassName="text-primary-content"
+                  />
+                </Link>
+
+                <ActionButton
+                  onClick={logout}
+                  label="Log out"
+                  className="bg-primary-content h-fit cursor-pointer gap-3 rounded-md px-6 py-4"
+                  labelClassName="text-white"
+                />
+              </>
+            )}
+          </>
+        )}
       </div>
     </nav>
   )

@@ -1,5 +1,8 @@
-// import { lazy } from 'react'
-import Home from '@/pages/Home'
+import { lazy } from 'react'
+import RedirectIfSignedIn from '@/hooks/RedirectIfSignedIn'
+import Home from '@/pages/home'
+const Auth = lazy(() => import('@/pages/auth'))
+const Dashboard = lazy(() => import('@/pages/dashboard'))
 
 const routes: RouteMetaData[] = [
   // Public Routes
@@ -8,24 +11,17 @@ const routes: RouteMetaData[] = [
     element: <Home />,
     type: 'public',
   },
-  // {
-  //   path: "/signin",
-  //   element: (
-  //     <RedirectIfSignedIn>
-  //       <SignIn />
-  //     </RedirectIfSignedIn>
-  //   ),
-  //   type: "public",
-  // },
-  // {
-  //   path: '/signup',
-  //   element: (
-  //     <RedirectIfSignedIn>
-  //       <Signup />
-  //     </RedirectIfSignedIn>
-  //   ),
-  //   type: 'public',
-  // },
+  {
+    path: '/auth',
+    element: (
+      <RedirectIfSignedIn>
+        <Auth />
+      </RedirectIfSignedIn>
+    ),
+    type: 'auth',
+  },
+  { path: '/dashboard', element: <Dashboard />, type: 'protected' },
+
   // Protected Routes
   // { path: "/properties/new", element: <CreateProperty />, type: "protected" },
   // { path: "/properties/:id", element: <PropertyDetails />, type: "protected" },
