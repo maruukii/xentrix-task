@@ -31,7 +31,7 @@ export async function signup(userData) {
   }
 }
 
-export async function login(email, password) {
+export async function signin(email, password) {
   try {
     var found = await User.findOne({ email: email });
     if (!found) {
@@ -67,6 +67,16 @@ export async function logout(cookies) {
   return "token cleared";
 }
 
+export async function me(email) {
+  const foundUser = await User.findOne({ email: email });
+  if (!foundUser) {
+    throw new Error("User not found");
+  }
+  return {
+    user: foundUser,
+  };
+}
+
 export async function refreshToken(cookies) {
   if (!cookies?.jwt) {
     throw new Error("No refresh token provided");
@@ -90,6 +100,5 @@ export async function refreshToken(cookies) {
 
   return {
     token: newAccessToken,
-    foundUser,
   };
 }
