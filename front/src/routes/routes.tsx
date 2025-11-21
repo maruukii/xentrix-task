@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 import RedirectIfSignedIn from '@/hooks/RedirectIfSignedIn'
 import Home from '@/pages/home'
+import AddElementHeader from '@/components/AddElementHeader'
 const NotFoundPage = lazy(() => import('@/pages/not-found'))
 const Auth = lazy(() => import('@/pages/auth'))
 const Dashboard = lazy(() => import('@/pages/dashboard'))
@@ -29,13 +30,53 @@ const routes: RouteMetaData[] = [
   },
   // Protected Routes
   { path: '/dashboard', element: <Dashboard />, type: 'protected', breadcrumb: 'Dashboard' },
-  { path: '/bookings', element: <></>, type: 'protected', breadcrumb: 'Bookings' },
-  { path: '/amendments', element: <></>, type: 'protected', breadcrumb: 'Amendments' },
-  { path: '/payments', element: <></>, type: 'protected', breadcrumb: 'Payments' },
-  { path: '/new-booking', element: <></>, type: 'protected', breadcrumb: 'New Booking' },
+  {
+    path: '/bookings',
+    element: (
+      <>
+        <AddElementHeader breadcrumb="Booking" />
+      </>
+    ),
+    type: 'protected',
+    breadcrumb: 'Bookings',
+  },
+  {
+    path: '/amendments',
+    element: (
+      <>
+        <AddElementHeader breadcrumb="Amendment" />
+      </>
+    ),
+    type: 'protected',
+    breadcrumb: 'Amendments',
+  },
+  {
+    path: '/payments',
+    element: (
+      <>
+        <AddElementHeader breadcrumb="Payment" />
+      </>
+    ),
+    type: 'protected',
+    breadcrumb: 'Payments',
+  },
+  {
+    path: '/new-booking',
+    element: (
+      <>
+        <AddElementHeader breadcrumb="Booking" />
+      </>
+    ),
+    type: 'protected',
+    breadcrumb: 'New Booking',
+  },
   {
     path: '/properties',
-    element: <></>,
+    element: (
+      <>
+        <AddElementHeader breadcrumb="Property" />
+      </>
+    ),
     type: 'protected',
     breadcrumb: 'Properties',
     description: 'Easily manage and track all your properties in one place.',
