@@ -5,9 +5,11 @@ import Sidebar from '@/components/sidebar'
 export default function Protected({
   children,
   breadcrumb,
+  description,
 }: {
   children: React.ReactNode
   breadcrumb?: string
+  description?: string
 }) {
   return (
     <div className="flex min-h-screen flex-row overflow-auto">
@@ -15,7 +17,7 @@ export default function Protected({
       <div className="ml-64.5 flex flex-1 flex-col">
         <DashboardNav />
         <main className="bg-primary flex w-full flex-1 flex-col gap-6 p-6">
-          <Breadcrumb title={breadcrumb || ''} />
+          <Breadcrumb title={breadcrumb || ''} description={description || ''} />
           {children}
         </main>
       </div>
