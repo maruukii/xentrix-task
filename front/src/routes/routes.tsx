@@ -33,7 +33,13 @@ const routes: RouteMetaData[] = [
   { path: '/amendments', element: <></>, type: 'protected', breadcrumb: 'Amendments' },
   { path: '/payments', element: <></>, type: 'protected', breadcrumb: 'Payments' },
   { path: '/new-booking', element: <></>, type: 'protected', breadcrumb: 'New Booking' },
-  { path: '/properties', element: <></>, type: 'protected', breadcrumb: 'Properties' },
+  {
+    path: '/properties',
+    element: <></>,
+    type: 'protected',
+    breadcrumb: 'Properties',
+    description: 'Easily manage and track all your properties in one place.',
+  },
   { path: '/help', element: <></>, type: 'protected', breadcrumb: 'Help Center' },
 
   // { path: "/properties/new", element: <CreateProperty />, type: "protected" },

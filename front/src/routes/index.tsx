@@ -21,7 +21,9 @@ const Index = () => {
               <Auth>{route.element}</Auth>
             ) : (
               <RequireAuth>
-                <Protected breadcrumb={route.breadcrumb}>{route.element}</Protected>
+                <Protected breadcrumb={route?.breadcrumb} description={route?.description}>
+                  {route.element}
+                </Protected>
               </RequireAuth>
             )
 
