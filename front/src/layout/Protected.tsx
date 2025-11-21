@@ -1,3 +1,24 @@
-export default function Protected({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-screen flex-col">{children}</div>
+import Breadcrumb from '@/components/Breadcrumb'
+import DashboardNav from '@/components/navbar/Dashboard'
+import Sidebar from '@/components/sidebar'
+
+export default function Protected({
+  children,
+  breadcrumb,
+}: {
+  children: React.ReactNode
+  breadcrumb?: string
+}) {
+  return (
+    <div className="flex min-h-screen flex-row overflow-auto">
+      <Sidebar />
+      <div className="ml-64.5 flex flex-1 flex-col">
+        <DashboardNav />
+        <main className="bg-primary flex w-full flex-1 flex-col gap-6 p-6">
+          <Breadcrumb title={breadcrumb || ''} />
+          {children}
+        </main>
+      </div>
+    </div>
+  )
 }

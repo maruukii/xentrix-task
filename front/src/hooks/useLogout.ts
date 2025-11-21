@@ -7,7 +7,7 @@ const useLogout = (dispatch:AppDispatch) => {
     try {
       const response=await axiosInstance.post("/auth/logout",
         {},
-      )
+      ).then(() => { window.location.href = "/" });  
       dispatch(clearUserData());
       setAccessToken("");
       return response;
