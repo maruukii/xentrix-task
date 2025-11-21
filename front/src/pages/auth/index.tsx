@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-import PhoneSignIn from '../../assets/phone.svg'
-import PhoneSignUp from '../../assets/tablet.svg'
+import { PhoneIcon, TabletIcon } from '@/utils/icons'
+
 import Signin from '@/components/auth/Signin'
 import Signup from '@/components/auth/Signup'
 
@@ -19,7 +19,7 @@ const Index = () => {
     window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
   }
   return (
-    <main className="flex h-full w-full flex-row gap-6 overflow-auto">
+    <main className="flex h-screen w-full flex-row gap-6 overflow-auto">
       <div className="bg-primary flex h-full min-h-[1024px] w-full flex-col gap-[104px] rounded-tr-[120px] px-16 pt-16 transition-all">
         <Link to="/" className="flex justify-center">
           <img src="/logo.png" alt="Logo Property Motion" className="h-9.5 w-[323px]" />
@@ -42,7 +42,7 @@ const Index = () => {
                 </p>
               </div>
 
-              <img src={PhoneSignIn} alt="Phone" />
+              <img src={PhoneIcon} alt="Phone" />
 
               <p className="w-[418px] text-center text-2xl leading-[120%] font-medium">
                 Capture every detail with premium photos, videos, and 3D visuals.
@@ -65,7 +65,7 @@ const Index = () => {
                 </p>
               </div>
 
-              <img src={PhoneSignUp} alt="Phone" />
+              <img src={TabletIcon} alt="Tablet" />
 
               <p className="w-[418px] text-center text-2xl leading-[120%] font-medium">
                 Capture every detail with premium photos, videos, and 3D visuals.

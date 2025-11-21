@@ -8,7 +8,9 @@
   --hc: #27c499;
   --a: #5565e8;
   --n: #ffffff;
-
+  --su: #27c499;
+  --d: #f81a1a;
+  --w: #f39a0c;
   --b: #dfdcdc;
 }
 
@@ -18,6 +20,9 @@
   --color-secondary: var(--s);
   --color-secondary-content: var(--sc);
   --color-highlight-content: var(--hc);
+  --color-danger: var(--d);
+  --color-warning: var(--w);
+  --color-success: var(--su);
   --color-accent: var(--a);
   --color-neutral: var(--n);
   --color-border: var(--b);
