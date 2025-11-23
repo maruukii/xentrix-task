@@ -16,14 +16,8 @@ const Signin = () => {
     password: '',
   })
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-
     if (error) setError(false)
-
-    setForm((prev) => ({
-      ...prev,
-      [name]: name === 'email' ? value.trim() : value, // only trim email on change
-    }))
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,10 +51,10 @@ const Signin = () => {
             name="email"
             type="email"
             value={form.email}
+            onChange={handleChange}
             onKeyDown={(e) => {
               if (e.key === ' ') e.preventDefault()
             }}
-            onChange={handleChange}
             autoComplete="email"
             className="border-secondary-content text-secondary-content h-auto w-full max-w-[362px] rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium"
             placeholder="Enter Your Email"
