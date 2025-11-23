@@ -14,5 +14,11 @@ export default defineConfig({
       "types": path.resolve(__dirname, "types"),
     },
   },
-
+server: {
+    host: true,
+    port: 5173,
+    watch: {
+      usePolling: true,
+    },
+  },
 })
