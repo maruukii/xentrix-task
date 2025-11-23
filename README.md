@@ -60,6 +60,18 @@ This project is inspired by a junior developer task provided by Xentrix, along w
    ```bash
    npm run build
    ```
+## Branches
+
+- `main`: Stable production code
+- `develop`: Default branch for ongoing work
+- `qa/*`: Branches for QA testing before release
+- `release/*`: Final prep for upcoming releases
+- `feat/*`: Feature branches
+- `chore/*`: Maintenance or cleanup tasks
+- `fix/*` or `bugfix/*`: Bug fix branches
+- `hotfix/*`: Urgent production fixes
+- `refac/*`: Code cleanup, restructuring, or optimization
+- `docs/*` or `doc/*`: Documentation updates
 
 ## Contributing
 

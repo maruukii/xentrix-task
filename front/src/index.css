@@ -1,68 +1,102 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+[data-theme='light'] {
+  --p: #ecf1f4;
+  --pc: #151b38;
+  --s: #fafcfe;
+  --sc: #404059;
+  --hc: #27c499;
+  --a: #5565e8;
+  --n: #ffffff;
+  --su: #27c499;
+  --d: #f81a1a;
+  --w: #f39a0c;
+  --b: #dfdcdc;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@theme {
+  --color-primary: var(--p);
+  --color-primary-content: var(--pc);
+  --color-secondary: var(--s);
+  --color-secondary-content: var(--sc);
+  --color-highlight-content: var(--hc);
+  --color-danger: var(--d);
+  --color-warning: var(--w);
+  --color-success: var(--su);
+  --color-accent: var(--a);
+  --color-neutral: var(--n);
+  --color-border: var(--b);
+
+  --font-work-sans: Work Sans, monospace;
 }
-a:hover {
-  color: #535bf2;
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth !important;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-family:
+    Work Sans,
+    monospace;
+  font-optical-sizing: auto;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+
+  /* @apply bg-primary text-white; */
 }
-button:hover {
-  border-color: #646cff;
+/* 
+.rehype-code-title {
+  @apply text-primary-content rounded-t-md bg-[#05101a] px-6 py-3 text-sm font-medium;
+} */
+h1 {
+  font-weight: 700;
+  font-style: bold;
+  font-size: 50px;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* p {
+  font-weight: 500;
+  font-size: 16px;
+} */
+button {
+  font-weight: 700;
+  font-style: bold;
+  font-size: 16px;
+  color: var(--color-neutral);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+h2,
+h3 {
+  scroll-margin-top: 5.25rem;
+}
+
+section {
+  scroll-margin-top: 1.5rem;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  * {
+    scroll-margin-top: 0;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media screen and (min-width: 1024px) {
+  h2,
+  h3 {
+    scroll-margin-top: 1.5rem;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+.hide-scrollbar {
+  -webkit-scrollbar {
+    display: none;
   }
+  scrollbar-width: none;
 }
