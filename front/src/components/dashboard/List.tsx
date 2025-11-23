@@ -6,7 +6,7 @@ const List = ({ entries }: { entries: number }) => {
   for (let i = 0; i < count; i++) {
     items.push(
       <div key={i}>
-        <div className="flex h-10 w-[304px] items-center justify-between">
+        <div className="flex h-10 w-full items-center justify-between">
           <div className="flex h-10 w-[143px] items-center gap-2">
             <div className="bg-primary-content/20 h-10 w-10 rounded-full" />
             <div className="flex h-10 w-[95px] flex-col justify-between">
@@ -18,8 +18,9 @@ const List = ({ entries }: { entries: number }) => {
               </span>
             </div>
           </div>
-
-          <img src={LinkIcon} alt="Link to" />
+          <div>
+            <img src={LinkIcon} alt="Link to" />
+          </div>
         </div>
 
         {i < 2 && <div className="border-secondary-content/40 mt-4 border-b"></div>}

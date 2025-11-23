@@ -26,8 +26,13 @@ export async function signup(req, res) {
       },
       message: "User Created Successfully",
     });
-  } catch (err) {
-    res.status(400).json({ success: false, message: err.message });
+  } catch (error) {
+    console.error("Signup Error:", error);
+
+    res.status(error.statusCode || 500).json({
+      success: false,
+      message: error.message || "Something went wrong",
+    });
   }
 }
 

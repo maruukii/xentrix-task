@@ -1,12 +1,13 @@
 import { lazy } from 'react'
 import RedirectIfSignedIn from '@/hooks/RedirectIfSignedIn'
-import Home from '@/pages/home'
 import AddElementHeader from '@/components/AddElementHeader'
+const Home = lazy(() => import('@/pages/home'))
 const NotFoundPage = lazy(() => import('@/pages/not-found'))
+const Property = lazy(() => import('@/pages/property'))
 const Auth = lazy(() => import('@/pages/auth'))
 const Dashboard = lazy(() => import('@/pages/dashboard'))
 
-const routes: RouteMetaData[] = [
+export const routes: RouteMetaData[] = [
   // Public Routes
   {
     path: '/',
@@ -75,6 +76,7 @@ const routes: RouteMetaData[] = [
     element: (
       <>
         <AddElementHeader breadcrumb="Property" />
+        <Property />
       </>
     ),
     type: 'protected',
@@ -87,5 +89,3 @@ const routes: RouteMetaData[] = [
   // { path: "/properties/:id", element: <PropertyDetails />, type: "protected" },
   // { path: "/properties/listing", element: <Properties />, type: "protected" },
 ]
-
-export default routes

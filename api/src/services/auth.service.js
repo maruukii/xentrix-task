@@ -9,8 +9,17 @@ const verifyJwt = promisify(jwt.verify);
 export async function signup(userData) {
   try {
     const { email, businessName, officeAddress, password, postCode } = userData;
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      const error = new Error("Email already exists");
+      error.statusCode = 409;
+      throw error;
+    }
+
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
+
     const CreatedUser = new User({
       email,
       businessName,
@@ -18,6 +27,7 @@ export async function signup(userData) {
       postCode,
       password: hashedPassword,
     });
+
     const savedUser = await CreatedUser.save();
 
     const token = generateToken(savedUser);
@@ -27,7 +37,7 @@ export async function signup(userData) {
 
     return { savedUser, token, refresh };
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 }
 
