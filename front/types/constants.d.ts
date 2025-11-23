@@ -29,3 +29,9 @@ declare interface PropertyResponse {
   data:PropertyFormData
   message?: string;
 }
+
+declare interface Features {
+  garden: boolean
+  garage: boolean
+  parking: boolean
+}

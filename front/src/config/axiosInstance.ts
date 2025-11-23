@@ -31,7 +31,6 @@ axiosInstance.interceptors.response.use(
       try {
         const refreshResult = await axiosInstance.get("/auth/refresh");
         setAccessToken(refreshResult.data.data.accessToken);
-        console.log(refreshResult)
         originalRequest.headers.Authorization =
           "Bearer " + refreshResult.data.data.accessToken;
 
@@ -46,42 +45,42 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-
 export const axiosImage = axios.create({
-  baseURL: "",
-  headers: {
-Accept: "image/png"  },
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
 });
+
+axiosImage.interceptors.request.use((config) => {
+  const token = getAccessToken();
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+
+  return config;
+});
+
 axiosImage.interceptors.response.use(
-  response => response,
-  error => {
-    if (error.response.status === 401) {
-      if(window.location.pathname!=="/landingpage"){      
-        console.error('Unauthorized! Redirecting to login...');
-        window.location.href="/landingpage";  
+  (response) => response,
+
+  async (error) => {
+    const originalRequest = error.config;
+
+    if (error.response?.status === 403 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      try {
+        const refreshResult = await axiosInstance.get("/auth/refresh");
+        const newToken = refreshResult.data.data.accessToken;
+
+        setAccessToken(newToken);
+        originalRequest.headers.Authorization = "Bearer " + newToken;
+
+        return axiosImage(originalRequest);
+
+      } catch (refreshError) {
+        window.location.href = "/auth?tab=signin";
+        return Promise.reject(refreshError);
       }
     }
+
     return Promise.reject(error);
   }
 );
-export const axiosFormData =axios.create({
-  baseURL:"",
-
-     headers: {
-                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                  },
-
-})
-axiosFormData.interceptors.response.use(
-  response => response,
-  error => {
-    if (error.response.status === 401) {
-      if(window.location.pathname!=="/landingpage"){      
-        console.error('Unauthorized! Redirecting to login...');
-        window.location.href="/landingpage";  
-      }
-    }
-    return Promise.reject(error);
-  }
-);
-

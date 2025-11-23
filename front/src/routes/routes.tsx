@@ -6,6 +6,8 @@ const NotFoundPage = lazy(() => import('@/pages/not-found'))
 const Property = lazy(() => import('@/pages/property'))
 const Auth = lazy(() => import('@/pages/auth'))
 const Dashboard = lazy(() => import('@/pages/dashboard'))
+const NewProperty = lazy(() => import('@/pages/property/actions/New'))
+const PropertyDetails = lazy(() => import('@/pages/property/actions/Details'))
 
 export const routes: RouteMetaData[] = [
   // Public Routes
@@ -77,6 +79,25 @@ export const routes: RouteMetaData[] = [
       <>
         <AddElementHeader breadcrumb="Property" />
         <Property />
+      </>
+    ),
+    type: 'protected',
+    breadcrumb: 'Properties',
+    description: 'Easily manage and track all your properties in one place.',
+  },
+  {
+    path: '/properties/new',
+    element: <NewProperty />,
+    type: 'protected',
+    breadcrumb: 'Properties',
+    description: 'Easily manage and track all your properties in one place.',
+  },
+  {
+    path: '/properties/:id',
+    element: (
+      <>
+        <AddElementHeader breadcrumb="Property" />
+        <PropertyDetails />
       </>
     ),
     type: 'protected',

@@ -1,4 +1,4 @@
-import { create, getAll, getById } from "@/api/properties";
+import { create, getAll, getById, uploadImage } from "@/api/properties";
 import type { PropertyFormData } from "@/schemas/property.schema";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -21,7 +21,16 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
   return useMutation({
     mutationFn: (property: PropertyFormData) => create(property),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["properties"] }); 
+      queryClient.resetQueries({
+        queryKey: ["properties"],
+        exact: true,
+      });
     },
+  });
+};
+
+export const useUploadImageMutation = () => {
+  return useMutation({
+    mutationFn: (file: File) => uploadImage(file),
   });
 };
