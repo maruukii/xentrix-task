@@ -17,7 +17,7 @@ export function generateRefreshToken(user) {
     businessName: user.businessName,
   };
 
-  return jwt.sign(payload, REFRESH_SECRET, { expiresIn: "40s" });
+  return jwt.sign(payload, REFRESH_SECRET, { expiresIn: "1d" });
 }
 
 export function authenticateToken(req, res, next) {

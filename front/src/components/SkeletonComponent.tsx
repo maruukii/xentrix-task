@@ -1,4 +1,4 @@
-export default function SkeletonComponent() {
+const SkeletonComponent = () => {
   return (
     <div className="animate-pulse">
       <div className="dark:bg-dark-elevated dark:border-dark-border-default flex h-5 w-50 items-center rounded-lg border border-gray-200 bg-gray-50 p-4">
@@ -8,3 +8,5 @@ export default function SkeletonComponent() {
     </div>
   )
 }
+
+export default SkeletonComponent

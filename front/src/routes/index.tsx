@@ -2,16 +2,16 @@ import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 // import PersistLogin from "../components/PersistLogin/PersistLogin.jsx";
 // import RequireAuth from "../hooks/RequireAuth.tsx";
-import routes from './routes.tsx'
+import { routes } from './routes.tsx'
 import Protected from '../layout/Protected'
 import Public from '../layout/Public'
-import SkeletonEffect from '@/components/SkeletonTable.tsx'
 import RequireAuth from '@/hooks/RequireAuth.tsx'
 import Auth from '@/layout/Auth.tsx'
+import Preloader from '@/components/preloader'
 
 const Index = () => {
   return (
-    <Suspense fallback={<SkeletonEffect />}>
+    <Suspense fallback={<Preloader />}>
       <Routes>
         {routes.map((route, idx) => {
           const RouteElement =

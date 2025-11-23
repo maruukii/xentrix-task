@@ -4,7 +4,7 @@ import './index.css'
 const App = () => {
   return (
     <>
-      {/* <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" /> */}
+      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-right" />
       <Routes />
     </>
   )

@@ -4,7 +4,7 @@ import {
   ArrowLeftIcon,
   QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline'
-import Button from '@/components/ui/actionButton'
+import Button from '@/components/ui/ActionButton'
 import { Link } from 'react-router-dom'
 
 const NotFoundPage = () => {

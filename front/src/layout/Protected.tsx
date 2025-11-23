@@ -2,7 +2,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import DashboardNav from '@/components/navbar/Dashboard'
 import Sidebar from '@/components/sidebar'
 
-export default function Protected({
+const Protected = ({
   children,
   breadcrumb,
   description,
@@ -10,7 +10,7 @@ export default function Protected({
   children: React.ReactNode
   breadcrumb?: string
   description?: string
-}) {
+}) => {
   return (
     <div className="flex min-h-screen flex-row overflow-auto">
       <Sidebar />
@@ -24,3 +24,5 @@ export default function Protected({
     </div>
   )
 }
+
+export default Protected

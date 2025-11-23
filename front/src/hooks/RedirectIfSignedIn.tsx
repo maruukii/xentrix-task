@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import type { ReactNode } from 'react'
-import SkeletonEffect from '@/components/SkeletonComponent'
-import useAuth from './useAuth'
+import { useAuth } from './useAuth'
+import Preloader from '@/components/preloader'
 
 interface RedirectIfSignedInProps {
   children: ReactNode
@@ -12,11 +12,14 @@ const RedirectIfSignedIn: React.FC<RedirectIfSignedInProps> = ({ children }) => 
   const { loading, isAuthenticated } = useAuth()
 
   if (loading) {
-    return <SkeletonEffect />
+    return <Preloader />
   }
 
   return isAuthenticated ? (
-    <Navigate to={location.state?.from?.pathname || '/dashboard'} replace />
+    <Navigate
+      to={location.state?.from?.pathname + location.state?.from?.search || '/dashboard'}
+      replace
+    />
   ) : (
     children
   )
