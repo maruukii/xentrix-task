@@ -51,7 +51,7 @@ const Signup = () => {
               placeholder="Enter Business Name"
             />
             {errors.businessName && (
-              <p className="text-sm text-red-500">{errors.businessName.message}</p>
+              <p className="text-danger text-sm">{errors.businessName.message}</p>
             )}
           </div>
 
@@ -66,7 +66,7 @@ const Signup = () => {
               placeholder="Enter Office Address"
             />
             {errors.officeAddress && (
-              <p className="text-sm text-red-500">{errors.officeAddress.message}</p>
+              <p className="text-danger text-sm">{errors.officeAddress.message}</p>
             )}
           </div>
 
@@ -80,7 +80,7 @@ const Signup = () => {
               className="border-secondary-content text-secondary-content h-auto w-full rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium"
               placeholder="Enter Post Code"
             />
-            {errors.postCode && <p className="text-sm text-red-500">{errors.postCode.message}</p>}
+            {errors.postCode && <p className="text-danger text-sm">{errors.postCode.message}</p>}
           </div>
 
           <div className="flex h-auto w-full max-w-[362px] flex-col gap-4">
@@ -94,7 +94,7 @@ const Signup = () => {
               className="border-secondary-content text-secondary-content h-auto w-full rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium"
               placeholder="Enter Email"
             />
-            {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
+            {errors.email && <p className="text-danger text-sm">{errors.email.message}</p>}
           </div>
 
           <div className="flex h-auto w-full max-w-[362px] flex-col gap-4">
@@ -122,7 +122,7 @@ const Signup = () => {
                 )}
               </button>
             </div>
-            {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
+            {errors.password && <p className="text-danger text-sm">{errors.password.message}</p>}
           </div>
 
           <div className="flex h-auto w-full max-w-[362px] flex-col gap-4">
@@ -150,7 +150,7 @@ const Signup = () => {
               </button>
             </div>
             {errors.confirmPassword && (
-              <p className="text-sm text-red-500">{errors.confirmPassword.message}</p>
+              <p className="text-danger text-sm">{errors.confirmPassword.message}</p>
             )}
           </div>
         </div>
