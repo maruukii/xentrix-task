@@ -1,6 +1,6 @@
 import HomeNav from '@/components/navbar/Home'
 
-export default function Public({ children }: { children: React.ReactNode }) {
+const Public = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen flex-col overflow-auto">
       <HomeNav />
@@ -8,3 +8,5 @@ export default function Public({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
+
+export default Public

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import ActionButton from '../ui/actionButton'
-import useLogout from '@/hooks/useLogout'
+import ActionButton from '../ui/ActionButton'
+import { useLogout } from '@/hooks/useLogout'
 import { useDispatch } from 'react-redux'
-import useAuth from '@/hooks/useAuth'
-import SkeletonEffect from '../SkeletonComponent'
+import { useAuth } from '@/hooks/useAuth'
+import SkeletonEffect from '../SkeletonTable'
 
 const HomeNav = () => {
   const dispatch = useDispatch()
@@ -44,7 +44,7 @@ const HomeNav = () => {
 
       <div className="flex gap-4">
         {loading ? (
-          <SkeletonEffect />
+          <SkeletonEffect rows={1} columns={1} showHeader={false} />
         ) : (
           <>
             {!isAuthenticated ? (

@@ -5,7 +5,7 @@ import { axiosInstance } from "../config/axiosInstance";
 import { setUserData, clearUserData } from "../store/user/userSlice";
 import {  setAccessToken } from "@/config/tokenStore";
 
-const useAuth = () => {
+export const useAuth = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
   const [loading, setLoading] = useState(true);
@@ -36,4 +36,3 @@ const useAuth = () => {
   };
 };
 
-export default useAuth;

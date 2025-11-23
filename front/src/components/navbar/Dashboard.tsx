@@ -1,5 +1,5 @@
-import useAuth from '@/hooks/useAuth'
-import SkeletonEffect from '../SkeletonComponent'
+import { useAuth } from '@/hooks/useAuth'
+import SkeletonEffect from '../SkeletonTable'
 import { LoopIcon, BellIcon, GearIcon, ChevronIcon } from '@/utils/icons'
 import { UserImage } from '@/utils/images'
 
@@ -37,7 +37,13 @@ const DashboardNav = () => {
           <img src={UserImage} alt="user avatar" className="h-10.5 w-10.5 rounded-full" />
           <div className="flex h-fit w-fit items-center gap-2">
             <span className="text-primary-content text-[16px] leading-[140%] font-medium tracking-[0px]">
-              {loading ? <SkeletonEffect /> : user ? user.businessName : 'User'}
+              {loading ? (
+                <SkeletonEffect rows={1} columns={1} showHeader={false} />
+              ) : user ? (
+                user.businessName
+              ) : (
+                'User'
+              )}
             </span>
             <div className="flex h-5.5 w-5.5 items-center justify-center">
               <img src={ChevronIcon} alt="chevron down" className="h-1.5 w-2.5" />

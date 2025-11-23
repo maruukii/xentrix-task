@@ -61,4 +61,4 @@ clearIsLoggedIn:(state)=>{
 });
 
 export const { setUserData,clearUserData,setLoginError,clearLoginError,setLogoutError,clearLogoutError,setIsLoggedIn,clearIsLoggedIn } = userSlice.actions;
-export default userSlice.reducer;
+export const userReducer = userSlice.reducer;

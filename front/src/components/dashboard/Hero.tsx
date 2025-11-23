@@ -1,4 +1,4 @@
-import ActionButton from '@/components/ui/actionButton'
+import ActionButton from '@/components/ui/ActionButton'
 import { ApartmentIcon } from '@/utils/icons'
 
 const Hero = () => {

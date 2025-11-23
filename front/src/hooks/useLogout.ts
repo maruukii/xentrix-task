@@ -2,12 +2,12 @@ import {axiosInstance} from "../config/axiosInstance";
 import {setAccessToken} from "@/config/tokenStore";
 import type { AppDispatch } from "@/store/store";
 import { clearUserData } from "@/store/user/userSlice";
-const useLogout = (dispatch:AppDispatch) => {
+export const useLogout = (dispatch:AppDispatch) => {
   const logout = async () => {
     try {
       const response=await axiosInstance.post("/auth/logout",
         {},
-      ).then(() => { window.location.href = "/" });  
+      ).then(() => { window.location.pathname !=="/"? window.location.href = "/" : null });  
       dispatch(clearUserData());
       setAccessToken("");
       return response;
@@ -16,4 +16,3 @@ const useLogout = (dispatch:AppDispatch) => {
   };
   return logout;
 };
-export default useLogout;

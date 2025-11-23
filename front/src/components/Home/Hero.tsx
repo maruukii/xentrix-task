@@ -1,5 +1,5 @@
 import { CalendarIcon } from '@heroicons/react/24/outline'
-import ActionButton from '@/components/ui/actionButton'
+import ActionButton from '@/components/ui/ActionButton'
 import { HeroImage } from '@/utils/images'
 
 const Hero = () => {
