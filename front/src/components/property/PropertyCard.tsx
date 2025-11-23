@@ -1,10 +1,14 @@
 import { BathIcon, BedIcon, SpaceIcon } from '@/utils/icons'
 import PercentageBadge from '../ui/PercentageBadge'
 import type { PropertyFormData } from '@/schemas/property.schema'
+import { useNavigate } from 'react-router-dom'
 
 const PropertyCard = ({ property }: { property: PropertyFormData }) => {
+  const navigate = useNavigate()
   return (
-    <div className="flex h-auto max-h-[485px] w-full basis-[365px] flex-col rounded-lg shadow-[0_4px_8px_0_rgba(0,0,0,0.12)]">
+    <div
+      className="flex h-auto max-h-[485px] w-full basis-[365px] cursor-pointer flex-col rounded-lg shadow-[0_4px_8px_0_rgba(0,0,0,0.12)]"
+      onClick={() => navigate(property._id!)}>
       <div className="flex h-[243px] w-full items-center">
         <img
           src={property?.image || '/logo.png'}

@@ -26,7 +26,7 @@ const index = () => {
   const logout = useLogout(dispatch)
   const path = location.pathname
   return (
-    <div className="bg-primary-content fixed flex h-screen w-fit flex-col justify-between p-6">
+    <div className="bg-primary-content fixed z-50 flex h-screen w-fit flex-col justify-between p-6">
       <div className="flex h-fit w-52 flex-col gap-[72px]">
         <a href="/">
           <img src={LogoIcon} alt="Logo" />

@@ -10,19 +10,33 @@ export const propertySchema = z.object({
   postCode: z.string().trim().min(1, "Post code is required"),
   reference: z.string().trim().min(1, "Property reference is required"),
 
-  value: z.number().min(1, "Property value is required"),
-  type: z.enum(["House", "Apartment", "Condo", "Commercial", "Land"], {
+  value: z.coerce
+    .number()
+    .min(1, "Property value is required and must be positive"),
+  type: z.enum(["house", "apartment", "condo", "commercial", "land"], {
     required_error: "Property type is required",
   }),
 
-  access: z.enum(["Private", "Shared", "Public Road"], {
+  access: z.enum(["private", "shared", "public road"], {
     required_error: "Property access information is required",
   }),
 
-  dimension: z.number().min(1, "Property dimension is required"),
-  bedrooms: z.number().min(1, "Number of bedrooms is required"),
-  bathrooms: z.number().min(1, "Number of bathrooms is required"),
-  floors: z.number().min(1, "Number of floors is required"),
+  dimension: z.coerce
+    .number()
+    .min(1, "Property dimension is required and must be positive")
+    .max(1000000, "Property dimension seems too large"),
+  bedrooms: z.coerce
+    .number()
+    .min(0, "Number of bedrooms is required and must be positive")
+    .max(100, "Number of bedrooms seems too high"),
+  bathrooms: z.coerce
+    .number()
+    .min(0, "Number of bathrooms is required and must be positive")
+    .max(100, "Number of bathrooms seems too high"),
+  floors: z.coerce
+    .number()
+    .min(0, "Number of floors is required and must be positive")
+    .max(100, "Number of floors seems too high"),
 
   features: z
     .object({
@@ -37,5 +51,5 @@ export const propertySchema = z.object({
       parking: false,
     }),
 
-  status: z.enum(["Sale", "Let"]).optional(),
+  status: z.enum(["sale", "let"]).optional(),
 });

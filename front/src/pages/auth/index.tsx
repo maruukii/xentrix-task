@@ -90,7 +90,7 @@ const Index = () => {
 
           <button
             onClick={() => handleTabChange('signup')}
-            className="z-10 flex h-auto w-full justify-center rounded-[100px] px-4 py-2 transition-colors">
+            className="z-10 flex h-auto w-full cursor-pointer justify-center rounded-[100px] px-4 py-2 transition-colors">
             <p
               className={`leading-[140%] ${
                 activeTab === 'signup'
@@ -103,7 +103,7 @@ const Index = () => {
 
           <button
             onClick={() => handleTabChange('signin')}
-            className="z-10 flex h-auto w-full justify-center rounded-[100px] px-4 py-2 transition-colors">
+            className="z-10 flex h-auto w-full cursor-pointer justify-center rounded-[100px] px-4 py-2 transition-colors">
             <p
               className={`leading-[140%] tracking-[0.04em] ${
                 activeTab === 'signin'
