@@ -37,12 +37,12 @@ const PropertySchema = new Schema({
   },
   type: {
     type: String,
-    enum: ["House", "Apartment", "Condo", "Commercial", "Land"],
+    enum: ["house", "apartment", "condo", "commercial", "land"],
     required: [true, "Please enter the property type"],
   },
   access: {
     type: String,
-    enum: ["Private", "Shared", "Public Road"],
+    enum: ["private", "shared", "public road"],
     required: [true, "Please enter the access information"],
   },
   dimension: {
@@ -77,7 +77,7 @@ const PropertySchema = new Schema({
   },
   status: {
     type: String,
-    enum: ["Sale", "Let"],
+    enum: ["sale", "let"],
   },
   createdAt: {
     type: String,

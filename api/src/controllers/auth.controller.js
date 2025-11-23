@@ -61,7 +61,7 @@ export async function signin(req, res) {
     ) {
       return res.status(404).json({ success: false, message: error.message });
     }
-    res.status(401).json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 }
 export async function logout(req, res) {
@@ -72,7 +72,7 @@ export async function logout(req, res) {
     res.json({ success: true, status });
   } catch (error) {
     console.error("Error during logout:", error.message);
-    res.status(401).json({ success: false, message: "Invalid refresh token" });
+    res.status(500).json({ success: false, message: "Invalid refresh token" });
   }
 }
 
