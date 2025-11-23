@@ -52,6 +52,9 @@ const Signin = () => {
             type="email"
             value={form.email}
             onChange={handleChange}
+            onKeyDown={(e) => {
+              if (e.key === ' ') e.preventDefault()
+            }}
             autoComplete="email"
             className="border-secondary-content text-secondary-content h-auto w-full max-w-[362px] rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium"
             placeholder="Enter Your Email"
