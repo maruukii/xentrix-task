@@ -1,7 +1,10 @@
 import { z } from "zod";
 
 export const signupSchema = z.object({
-  businessName: z.string().min(1, "Business name is required"),
+businessName: z
+  .string()
+  .min(1, "Business name is required")
+  .max(40, "Business name must be at most 40 characters"),
   officeAddress: z.string().min(1, "Office address is required"),
   postCode: z.string().min(1, "Post code is required"),
   email: z.string().email("Invalid email address"),
@@ -12,3 +15,4 @@ export const signupSchema = z.object({
   path: ["confirmPassword"],
 });
 export type SignupFormData = z.infer<typeof signupSchema>;
+

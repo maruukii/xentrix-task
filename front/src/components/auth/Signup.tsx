@@ -17,6 +17,7 @@ const Signup = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = useForm({
     resolver: zodResolver(signupSchema),
   })
@@ -26,8 +27,12 @@ const Signup = () => {
       const res = await axiosInstance.post('/auth/signup', data)
       dispatch(setUserData(res.data.data.user))
       navigate('/')
-    } catch (err: any) {
-      console.error(err)
+    } catch (error: any) {
+      const msg = error.response?.data?.message || 'Something went wrong. Try again.'
+      setError('email', {
+        type: 'server',
+        message: msg,
+      })
     }
   }
 
