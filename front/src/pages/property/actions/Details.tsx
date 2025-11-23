@@ -18,7 +18,7 @@ const details = [
 const Details = () => {
   const { id } = useParams()
   const { data, isLoading } = useGetPropertyQuery(id!)
-  // Show skeleton while loading
+
   if (isLoading) {
     return (
       <div className="flex h-full w-full flex-col gap-10 rounded-lg bg-white p-8 shadow-[0_4px_8px_0_rgba(0,0,0,0.10)]">
@@ -57,7 +57,6 @@ const Details = () => {
     }
     return property[key as keyof PropertyFormData]
   }
-  console.log(property)
   return (
     <div className="flex h-full w-full flex-col gap-10 rounded-lg bg-white p-8 pb-20 shadow-[0_4px_8px_0_rgba(0,0,0,0.10)]">
       <div className="flex h-auto w-full flex-col gap-6 md:gap-8">
