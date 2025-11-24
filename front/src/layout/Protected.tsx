@@ -1,6 +1,7 @@
 import Breadcrumb from '@/components/Breadcrumb'
 import DashboardNav from '@/components/navbar/Dashboard'
 import Sidebar from '@/components/sidebar'
+import { useEffect } from 'react'
 
 const Protected = ({
   children,
@@ -11,6 +12,17 @@ const Protected = ({
   breadcrumb?: string
   description?: string
 }) => {
+  useEffect(() => {
+    const handler = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload()
+      }
+    }
+
+    window.addEventListener('pageshow', handler)
+    return () => window.removeEventListener('pageshow', handler)
+  }, [])
+
   return (
     <div className="flex min-h-screen flex-row overflow-auto">
       <Sidebar />

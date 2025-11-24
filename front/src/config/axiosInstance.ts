@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getAccessToken,setAccessToken } from './tokenStore';
+
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: { "Content-Type": "application/json" },
@@ -26,20 +27,24 @@ axiosInstance.interceptors.response.use(
     // }
 
     if (error.response?.status === 403 && !originalRequest._retry) {
-      originalRequest._retry = true;
+  originalRequest._retry = true;
 
-      try {
-        const refreshResult = await axiosInstance.get("/auth/refresh");
-        setAccessToken(refreshResult.data.data.accessToken);
-        originalRequest.headers.Authorization =
-          "Bearer " + refreshResult.data.data.accessToken;
+  try {
+    const refreshResult = await axiosInstance.get("/auth/refresh");
+    setAccessToken(refreshResult.data.data.accessToken);
+    originalRequest.headers.Authorization =
+      "Bearer " + refreshResult.data.data.accessToken;
 
-        return axiosInstance(originalRequest);
-      } catch (refreshError) {
-        window.location.href = "/auth?tab=signin";
-        return Promise.reject(refreshError);
-      }
-    }
+    return axiosInstance(originalRequest);
+  } catch (refreshError) {
+    const currentPath = window.location.pathname + window.location.search;
+    !window.location.pathname.includes("/auth")?
+    window.location.href =
+      "/auth?tab=signin&redirect=" + encodeURIComponent(currentPath):null
+
+    return Promise.reject(refreshError);
+  }
+}
 
     return Promise.reject(error);
   }
