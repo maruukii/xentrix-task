@@ -34,7 +34,12 @@ const Hero = () => {
       </div>
 
       <div className="h-[381px] w-[624px] overflow-hidden rounded-lg shadow-[0_4px_8px_rgba(0,0,0,0.25)]">
-        <img src={HeroImage} alt="Dashboard" className="h-full w-full object-cover" />
+        <img
+          src={HeroImage}
+          alt="Dashboard"
+          className="h-full w-full object-cover"
+          fetchPriority="high"
+        />
       </div>
     </section>
   )
