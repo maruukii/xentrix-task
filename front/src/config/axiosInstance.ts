@@ -18,14 +18,7 @@ axiosInstance.interceptors.response.use(
 
   async (error) => {
     const originalRequest = error.config;
-
-    // if (error.response?.status === 401) {
-    //   if (window.location.pathname !== "/auth") {
-    //     window.location.href = "/auth?tab=signin";
-    //   }
-    //   return Promise.reject(error);
-    // }
-
+    
     if (error.response?.status === 403 && !originalRequest._retry) {
   originalRequest._retry = true;
 
@@ -69,22 +62,24 @@ axiosImage.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response?.status === 403 && !originalRequest._retry) {
-      originalRequest._retry = true;
+  originalRequest._retry = true;
 
-      try {
-        const refreshResult = await axiosInstance.get("/auth/refresh");
-        const newToken = refreshResult.data.data.accessToken;
+  try {
+    const refreshResult = await axiosInstance.get("/auth/refresh");
+    setAccessToken(refreshResult.data.data.accessToken);
+    originalRequest.headers.Authorization =
+      "Bearer " + refreshResult.data.data.accessToken;
 
-        setAccessToken(newToken);
-        originalRequest.headers.Authorization = "Bearer " + newToken;
+    return axiosInstance(originalRequest);
+  } catch (refreshError) {
+    const currentPath = window.location.pathname + window.location.search;
+    !window.location.pathname.includes("/auth")?
+    window.location.href =
+      "/auth?tab=signin&redirect=" + encodeURIComponent(currentPath):null
 
-        return axiosImage(originalRequest);
-
-      } catch (refreshError) {
-        window.location.href = "/auth?tab=signin";
-        return Promise.reject(refreshError);
-      }
-    }
+    return Promise.reject(refreshError);
+  }
+}
 
     return Promise.reject(error);
   }
