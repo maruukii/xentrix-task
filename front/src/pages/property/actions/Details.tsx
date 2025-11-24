@@ -49,6 +49,8 @@ const Details = () => {
 
   const getValue = (key: string) => {
     if (key === 'features') return formatFeatures(property.features)
+    if (!property[key as keyof PropertyFormData] && property[key as keyof PropertyFormData] !== 0)
+      return '-'
     if (typeof property[key as keyof PropertyFormData] === 'string') {
       return (
         property[key as keyof PropertyFormData].charAt(0).toUpperCase() +

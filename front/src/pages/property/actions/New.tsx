@@ -138,7 +138,7 @@ const index = () => {
             Property Name
           </p>
 
-          <div className="border-secondary-content/60 bg-primary/40 h-auto w-full flex-col items-center gap-2 rounded-lg border px-6 py-3">
+          <div className="focus-within:border-primary-content border-secondary-content/60 bg-primary/40 h-auto w-full flex-col items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
             <input
               {...register('propertyName')}
               type="text"
@@ -164,7 +164,7 @@ const index = () => {
             />
           </div> */}
           <div className="flex h-auto w-full flex-row gap-4">
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
               <input
                 {...register('address')}
                 type="text"
@@ -173,7 +173,7 @@ const index = () => {
               />
             </div>
 
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3">
+            <div className="border-secondary-content/60 focus-within:border-primary-content bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
               <input
                 {...register('city')}
                 type="text"
@@ -193,7 +193,7 @@ const index = () => {
           </div>
 
           <div className="flex h-auto w-full flex-row gap-4">
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3">
+            <div className="border-secondary-content/60 focus-within:border-primary-content bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
               <input
                 {...register('country')}
                 type="text"
@@ -202,7 +202,7 @@ const index = () => {
               />
             </div>
 
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3">
+            <div className="border-secondary-content/60 focus-within:border-primary-content bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
               <input
                 {...register('postCode')}
                 type="text"
@@ -233,7 +233,7 @@ const index = () => {
             />
           </div> */}
           <div className="flex h-auto w-full flex-row gap-4">
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
               <input
                 {...register('reference')}
                 type="text"
@@ -242,7 +242,7 @@ const index = () => {
               />
             </div>
 
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border px-6 py-3 focus-within:border-2">
               <input
                 type="number"
                 {...register('value')}
@@ -266,7 +266,7 @@ const index = () => {
             <div className="relative w-full">
               <select
                 {...register('type')}
-                className="border-secondary-content/60 bg-primary/40 text-secondary-content/60 w-full appearance-none rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium outline-none"
+                className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content text-secondary-content/60 w-full appearance-none rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium outline-none focus-within:border-2"
                 defaultValue="">
                 <option value="" disabled>
                   Property type
@@ -285,7 +285,7 @@ const index = () => {
             <div className="relative w-full">
               <select
                 {...register('access')}
-                className="border-secondary-content/60 bg-primary/40 text-secondary-content/60 w-full appearance-none rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium outline-none"
+                className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content text-secondary-content/60 w-full appearance-none rounded-lg border px-6 py-3 text-[16px] leading-[140%] font-medium outline-none focus-within:border-2"
                 defaultValue="">
                 <option value="" disabled>
                   Property access
@@ -341,7 +341,7 @@ const index = () => {
           </div>
 
           <div className="flex h-auto w-full flex-row gap-4">
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-6">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-6 focus-within:border-2">
               <input
                 {...register('dimension')}
                 type="number"
@@ -350,7 +350,7 @@ const index = () => {
               />
             </div>
 
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-6">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-6 focus-within:border-2">
               <input
                 type="number"
                 {...register('bedrooms')}
@@ -358,7 +358,7 @@ const index = () => {
                 placeholder="No. bedrooms"
               />
             </div>
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-4">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-4 focus-within:border-2">
               <input
                 type="number"
                 {...register('bathrooms')}
@@ -366,7 +366,7 @@ const index = () => {
                 placeholder="No. bathrooms"
               />
             </div>
-            <div className="border-secondary-content/60 bg-primary/40 flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-6">
+            <div className="border-secondary-content/60 bg-primary/40 focus-within:border-primary-content flex h-auto w-full items-center gap-2 rounded-lg border py-3 pl-6 focus-within:border-2">
               <input
                 type="number"
                 {...register('floors')}
