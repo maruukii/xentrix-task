@@ -99,7 +99,8 @@ const Details = () => {
                 </span>
 
                 <span className="text-secondary-content text-left text-[16px] leading-[140%] font-medium">
-                  {String(getValue(item.value))} {item.value === 'dimension' ? 'm²' : ''}
+                  {item.value === 'value' ? '£' : ''} {String(getValue(item.value))}{' '}
+                  {item.value === 'dimension' ? 'm²' : ''}
                 </span>
               </div>
             ))}
