@@ -1,4 +1,4 @@
-# Xentrix task
+# Property Motion - Technical Assessment
 
 This project is inspired by a junior developer task provided by Xentrix, along with a Figma UI design that outlines the core layout and user interactions. The goal of the assignment is to translate the provided interface into a functional MERN-stack application while respecting the visual guidelines and component structure defined in the Figma prototype.
 
