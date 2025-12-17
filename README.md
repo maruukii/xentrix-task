@@ -43,23 +43,19 @@ This project is inspired by a junior developer task provided by Xentrix, along w
    npm install
    ```
 
-3. **Start the development server (frontend):**
+3. **Start the development server (frontend & backend):**
 
    ```bash
    npm run dev
    ```
-
-4. **Start the development server (backend):**
-
-   ```bash
-   npm run dev
-   ```
+   
 > **Note:** You can start the project in two ways:
 > 1. Run the frontend and backend separately (as described above), or  
 > 2. Use **Docker Compose** from the **project root** (where `compose.yml` is located).  
 >    Make sure you are in the root directory before running Compose; if the file is not there, adjust the project structure accordingly.  
 >    When using Docker Compose, set **NODE_ENV=production** in the api .env.local file.
-5. **Build for production:**
+
+4. **Build for production:**
 
    ```bash
    npm run build
