@@ -2,6 +2,11 @@
 
 This project is inspired by a junior developer task provided by Xentrix, along with a Figma UI design that outlines the core layout and user interactions. The goal of the assignment is to translate the provided interface into a functional MERN-stack application while respecting the visual guidelines and component structure defined in the Figma prototype.
 
+## 🔗 Related Figma UI Design
+
+  👉 [View Design](https://www.figma.com/design/vbxl45mfYWbUEhSUm8FrfD/Dev-Junior-Task?node-id=0-1&t=IS9VauBEdfBLGLSs-1)
+
+---
 ## Technologies and Tools
 
 ### Frontend
