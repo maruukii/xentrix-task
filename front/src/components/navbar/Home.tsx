@@ -59,22 +59,24 @@ const HomeNav = () => {
                   <Link to="/auth?tab=signin">
                     <ActionButton
                       label="Sign in"
-                      className="border-primary-content rounded-md border-[1.5px] px-6 py-4"
+                      className="border-primary-content cursor-pointer rounded-md border-[1.5px] px-6 py-4"
                       labelClassName="text-primary-content"
                     />
                   </Link>
-                  <ActionButton
-                    label="Get Started"
-                    className="bg-primary-content cursor-not-allowed rounded-md px-6 py-4"
-                    labelClassName="text-white"
-                  />
+                  <Link to="/auth?tab=signup">
+                    <ActionButton
+                      label="Get Started"
+                      className="bg-primary-content cursor-pointer rounded-md px-6 py-4"
+                      labelClassName="text-white"
+                    />
+                  </Link>
                 </>
               ) : (
                 <>
                   <Link to="/dashboard">
                     <ActionButton
                       label="Dashboard"
-                      className="border-primary-content rounded-md border-[1.5px] px-6 py-4"
+                      className="border-primary-content cursor-pointer rounded-md border-[1.5px] px-6 py-4"
                       labelClassName="text-primary-content"
                     />
                   </Link>

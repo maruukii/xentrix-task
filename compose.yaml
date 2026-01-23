@@ -1,0 +1,50 @@
+name: xentrix-task
+services:
+  frontend:
+    build: 
+      context: ./front
+    container_name: xentrix-task-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./front:/usr/src/app:delegated
+      - frontend_node_modules:/usr/src/app/node_modules
+    env_file:
+      - ./front/.env.local 
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_INTERVAL=300
+    command: npm run dev
+  api:
+    build:
+      context: ./api
+    container_name: xentrix-task-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/usr/src/app:delegated
+      - api_node_modules:/usr/src/app/node_modules
+    env_file:
+      - ./api/.env.local
+    environment:
+    - CHOKIDAR_USEPOLLING=true
+    - WATCHPACK_POLLING=true
+    - CHOKIDAR_INTERVAL=300
+    command: npm run dev
+  mongo:
+    image: mongo:6
+    container_name: mongo_container
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: mydb
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  frontend_node_modules:
+  mongo_data:
+  api_node_modules:

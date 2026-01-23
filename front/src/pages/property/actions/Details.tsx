@@ -18,7 +18,7 @@ const details = [
 const Details = () => {
   const { id } = useParams()
   const { data, isLoading } = useGetPropertyQuery(id!)
-  // Show skeleton while loading
+
   if (isLoading) {
     return (
       <div className="flex h-full w-full flex-col gap-10 rounded-lg bg-white p-8 shadow-[0_4px_8px_0_rgba(0,0,0,0.10)]">
@@ -49,6 +49,8 @@ const Details = () => {
 
   const getValue = (key: string) => {
     if (key === 'features') return formatFeatures(property.features)
+    if (!property[key as keyof PropertyFormData] && property[key as keyof PropertyFormData] !== 0)
+      return '-'
     if (typeof property[key as keyof PropertyFormData] === 'string') {
       return (
         property[key as keyof PropertyFormData].charAt(0).toUpperCase() +
@@ -57,7 +59,6 @@ const Details = () => {
     }
     return property[key as keyof PropertyFormData]
   }
-  console.log(property)
   return (
     <div className="flex h-full w-full flex-col gap-10 rounded-lg bg-white p-8 pb-20 shadow-[0_4px_8px_0_rgba(0,0,0,0.10)]">
       <div className="flex h-auto w-full flex-col gap-6 md:gap-8">
@@ -98,7 +99,8 @@ const Details = () => {
                 </span>
 
                 <span className="text-secondary-content text-left text-[16px] leading-[140%] font-medium">
-                  {String(getValue(item.value))} {item.value === 'dimension' ? 'm²' : ''}
+                  {item.value === 'value' ? '£' : ''} {String(getValue(item.value))}{' '}
+                  {item.value === 'dimension' ? 'm²' : ''}
                 </span>
               </div>
             ))}

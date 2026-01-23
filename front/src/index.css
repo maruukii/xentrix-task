@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './fonts/fonts.css';
 
 [data-theme='light'] {
   --p: #ecf1f4;

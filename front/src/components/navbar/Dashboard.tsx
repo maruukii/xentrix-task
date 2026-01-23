@@ -8,7 +8,7 @@ const DashboardNav = () => {
   return (
     <nav className="bg-primary border-secondary-content/40 flex h-auto min-h-[90px] w-full items-center justify-between border-b p-6">
       {loading ? (
-        <SkeletonEffect />
+        <SkeletonEffect rows={1} columns={1} showHeader={false} />
       ) : (
         <p className="text-primary-content text-left text-[24px] leading-[120%] font-medium tracking-[0px]">
           Hello, {user ? user?.businessName : 'User'}!

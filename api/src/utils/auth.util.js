@@ -25,7 +25,7 @@ export function authenticateToken(req, res, next) {
 
   if (!authHeader) {
     return res
-      .status(401)
+      .status(403)
       .json({ success: false, message: "Unauthorized: Missing token." });
   }
 
@@ -33,7 +33,7 @@ export function authenticateToken(req, res, next) {
 
   if (scheme !== "Bearer" || !token) {
     return res
-      .status(401)
+      .status(403)
       .json({ success: false, message: "Unauthorized: Invalid token format." });
   }
 
