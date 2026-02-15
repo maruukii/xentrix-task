@@ -3,6 +3,7 @@ import Property from "../models/property.model.js";
 export async function create(userData) {
   try {
     const {
+      createdBy,
       image,
       propertyName,
       address,
@@ -21,6 +22,7 @@ export async function create(userData) {
       status,
     } = userData;
     const CreatedProperty = new Property({
+      createdBy,
       image,
       propertyName,
       address,
@@ -46,9 +48,9 @@ export async function create(userData) {
   }
 }
 
-export async function getAll() {
+export async function getAll(userId) {
   try {
-    const properties = await Property.find();
+    const properties = await Property.find({ createdBy: userId });
     return properties;
   } catch (error) {
     throw new Error(error);

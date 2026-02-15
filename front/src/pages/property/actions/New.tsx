@@ -37,7 +37,6 @@ const index = () => {
   const [preview, setPreview] = useState<string | null>(null)
   const [image, setImage] = useState<File | null>(null)
   const [imageError, setImageError] = useState<string | null>(null)
-
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImageError(null)
     const file = e.target.files?.[0]

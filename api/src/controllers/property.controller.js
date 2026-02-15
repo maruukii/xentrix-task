@@ -7,9 +7,9 @@ export async function create(req, res) {
     if (!result.success) {
       return res.status(400).json(result);
     }
-    console.log(result.data);
-
     const validatedData = result.data;
+
+    validatedData.createdBy = req.user._id;
     const { savedProperty } = await propertyService.create(validatedData);
     res.status(201).json({
       success: true,
@@ -25,7 +25,8 @@ export async function create(req, res) {
 
 export async function getAll(req, res) {
   try {
-    const properties = await propertyService.getAll();
+    const userId = req.user._id;
+    const properties = await propertyService.getAll(userId);
     res.status(200).json({
       success: true,
       data: {

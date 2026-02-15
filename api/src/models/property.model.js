@@ -4,6 +4,11 @@ import moment from "moment-timezone";
 const { Schema } = mongoose;
 
 const PropertySchema = new Schema({
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   image: {
     type: String,
   },

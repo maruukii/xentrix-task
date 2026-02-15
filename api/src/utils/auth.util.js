@@ -5,14 +5,15 @@ const REFRESH_SECRET = process.env.JWT_REFRESH_SECRET_KEY;
 
 export function generateToken(user) {
   const payload = {
+    _id: user._id,
     email: user.email,
     businessName: user.businessName,
   };
-
   return jwt.sign(payload, ACCESS_SECRET, { expiresIn: "10s" });
 }
 export function generateRefreshToken(user) {
   const payload = {
+    _id: user._id,
     email: user.email,
     businessName: user.businessName,
   };

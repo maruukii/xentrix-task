@@ -69,7 +69,7 @@ const index = () => {
           ) : (
             <div className="flex w-full flex-wrap gap-8">
               {data?.map((property: PropertyFormData) => (
-                <div key={property._id} className="min-w-[320px] flex-1 basis-0">
+                <div key={property?._id} className="min-w-[320px] flex-1 basis-0">
                   <PropertyCard property={property} />
                 </div>
               ))}
