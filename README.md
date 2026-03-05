@@ -4,7 +4,7 @@ This project is inspired by a junior developer task provided by Xentrix, along w
 
 ## 🔗 Related Figma UI Design
 
-  👉 [View Design](https://www.figma.com/design/vbxl45mfYWbUEhSUm8FrfD/Dev-Junior-Task?node-id=0-1&t=IS9VauBEdfBLGLSs-1)
+  👉 [View Related Design](https://www.figma.com/design/vbxl45mfYWbUEhSUm8FrfD/Dev-Junior-Task?node-id=0-1&t=IS9VauBEdfBLGLSs-1)
 
 ---
 ## Technologies and Tools
