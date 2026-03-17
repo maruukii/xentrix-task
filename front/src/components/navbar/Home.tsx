@@ -13,7 +13,6 @@ const HomeNav = () => {
   const { isAuthenticated, loading } = useAuth()
 
   const [open, setOpen] = useState(false)
-
   return (
     <nav className="bg-primary w-full px-6 py-4 lg:px-[104px] lg:py-6">
       <div className="flex w-full items-center justify-between">
@@ -51,7 +50,9 @@ const HomeNav = () => {
 
         <div className="hidden gap-4 lg:flex">
           {loading ? (
-            <SkeletonEffect rows={1} columns={1} showHeader={false} />
+            <div className="w-68">
+              <SkeletonEffect rows={1} columns={2} showHeader={false} />
+            </div>
           ) : (
             <>
               {!isAuthenticated ? (

@@ -30,6 +30,7 @@ const SkeletonEffect = ({
               className="rounded bg-gray-300 dark:bg-gray-600"
               style={{
                 height: `32px`,
+                zIndex: 1000,
               }}
             />
           ))}
@@ -51,7 +52,7 @@ const SkeletonEffect = ({
             ))}
           </div>
         )} */}
-        <div className="border-secondary-content/40 mb-4 w-full border-b" />
+        {showHeader && <div className="border-secondary-content/40 mb-4 w-full border-b" />}
 
         {/* Table Body */}
         <div>
@@ -68,7 +69,7 @@ const SkeletonEffect = ({
               {Array.from({ length: columns }).map((_, colIndex) => (
                 <div
                   key={colIndex}
-                  className="rounded bg-gray-300 dark:bg-gray-600"
+                  className="rounded bg-gray-300 dark:bg-gray-500"
                   style={{
                     height: `${rowHeight}px`,
                     width: '100%',
